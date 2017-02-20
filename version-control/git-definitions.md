@@ -10,3 +10,5 @@ A: A branch is basically an independent line of development. You will use branch
 A: A commit in git is basically records changes to the repository. A good commit message describe what changes has been done in simplified form so both the developer and other developers are able to read and follow up with the commit.
 * What is a merge conflict?
 A: Merge conflict is when git is trying to merge two different branches together but unable to do so. This occurs because git knows there are changes in either the working directory or staging are that could be written over by the files that you are merging in. 
+
+## If you are a security guard that works at the samsung's galaxy booth, does that make you the guardian of the galaxy? (sorry bad joke.)
