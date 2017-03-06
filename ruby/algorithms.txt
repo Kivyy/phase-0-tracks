@@ -1,0 +1,11 @@
+Release 0: 
+
+-finalize which floor the robot will be going.
+	-ask for input.
+
+-click on the floor button.
+	-until the input matches one of the floor buttons .
+		-keep asking the user for input (floor number within the range).
+	-if input matches the floor button.
+		-click on the button that matches the input. 
+
