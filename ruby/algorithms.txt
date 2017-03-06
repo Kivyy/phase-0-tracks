@@ -9,3 +9,12 @@ Release 0:
 	-if input matches the floor button.
 		-click on the button that matches the input. 
 
+Release 1:
+Algorithm: checking and answering emails on phone. 
+
+-Pick up phone and check if there is any notification for your E-mail.
+-Click on the E-mail app icon on the phone.
+-If there is a new E-mail notification, click on the email.
+-If email requires a reply, click on the reply button.
+-If the email does not requires any attention, click on mark as read.
+-If no new E-mail notification at all , close the app.
