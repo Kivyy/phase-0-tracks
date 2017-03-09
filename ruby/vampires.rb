@@ -20,7 +20,25 @@ employee_count -= 1
 	puts "Would you like to enroll in the company's health insurance? (y/n)"
 	health_insurance = gets.chomp == "y" ? true : false 
 
-	# using this method to calculate user actual age and test if user_name is upcase.
+	# Release 4 allergy's loop
+
+	puts "Please list any allergies you have! One at a time"
+	user_allergy = gets.chomp  
+
+	secret_word = "done"
+	trap_word = "sunshine"
+
+	while user_allergy != secret_word
+	 if user_allergy == trap_word 
+	    break
+	  end 
+	  puts "Please say 'done' if you have listed all your allergies"
+	  puts "If not , you may continue to list your allergies."
+	  user_allergy = gets.chomp 
+	end 
+
+
+	# use this method to calculate user actual age and test if the user name.
 
 	def age_calculator(user_birth_year)
 		date = Time.now.year 
@@ -40,14 +58,14 @@ employee_count -= 1
 
 	# Condition matching starts here
 
-	if user_age == user_real_age && (garlic_test || health_insurance) && !name_test
-		puts "#{user_name}is probably not a vampire"
-	elsif user_age != user_real_age && (garlic_test || health_insurance)
-		puts "#{user_name}is probably a vampire"
+	if user_age == user_real_age && (garlic_test || health_insurance) && !name_test && user_allergy != trap_word
+		puts "#{user_name} is proabably not a vampire"
+	elsif (user_age != user_real_age && (garlic_test || health_insurance)) || user_allergy == trap_word 
+		puts "#{user_name} is probably a vampire"
 	elsif user_age != user_real_age && !garlic_test && !health_insurance
-		puts  "#{user_name}is almost certainly a vampire"
+		puts  "#{user_name} is almost cerntainly a vampire"
 	elsif user_age == user_real_age && garlic_test && health_insurance && name_test 
-		puts "#{user_name}is definitely a vampire."
+		puts "#{user_name} is definitely a vampire!"
 	else 
 		puts "Results inconclusive"
 	end 
