@@ -1,15 +1,19 @@
 
 
 def encrypt(str)
-	puts str
 	index = 0
 	while index < str.length
-		print str[index].next.sub("!"," ")
+		if str[index] == "z"
+			print "a"
+		else 
+			print str[index].next.sub("!"," ")
+		end 
 		index += 1
 	end
 end
 
-encrypt("Fire Department")
+
+
 
 def decrypt(word)
 	letter = "abcdefghijklmnopqrstuvwxyz"
@@ -17,10 +21,13 @@ def decrypt(word)
 	while index < word.length 
 		word_letter = word[index] 
     	num_letter = letter.index(word_letter)
-    print letter[num_letter - 1]
-    index += 1 
+    if word[index] == "a"
+      print "z"
+    else 
+      print letter[num_letter - 1]
+    end
+      index += 1 
 	end 
 end 
 
-decrypt("bye")
-
+print decrypt(encrypt("swordfish"))
