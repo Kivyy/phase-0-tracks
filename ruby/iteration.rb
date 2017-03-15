@@ -6,10 +6,6 @@ end
 
 print_name { |user_name| puts "Nice to meet you #{user_name}, welcome to ruby!"}
 
-
-
-
-
 hollywood_actors = ["Ben Affleck", "Matt Damon", "Christian Bale", "Jennifer Anniston"]
 
 actors_movie = {
@@ -36,4 +32,30 @@ actors_movie.map do |actors, movie|
 	puts "#{actors} #{movie} "
 	puts "#{actors} #{movie.capitalize}"
 end 
+
+# Release 2 
+
+numbers = [1,2,3,4,5,6,7,8,9,10]
+
+word_digits = {
+	one: 1,
+	two: 2,
+	three: 3,
+	four: 4,
+	five: 5,
+	six: 6,
+	seven: 7,
+}
+
+#question 1
+p numbers.delete_if{|num|num < 5}
+
+p word_digits.delete_if{|num , digit| digit < 5}
+
+# question 2 
+p numbers.select{ |num| num < 5}
+
+p word_digits.select{|number , digit| digit < 5}
+
+
 
