@@ -57,5 +57,12 @@ p numbers.select{ |num| num < 5}
 
 p word_digits.select{|number , digit| digit < 5}
 
+#question 3 
+p numbers.find_all {|num| num % 2 == 0 }
 
+p word_digits.find_all {|number , digit| digit % 2 == 0 }
 
+#question 4 
+p numbers.drop_while {|num| num < 3}
+
+p word_digits.drop_while {|number , digit| digit < 4}
