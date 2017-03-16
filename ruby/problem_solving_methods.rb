@@ -5,9 +5,24 @@
 =end 
 
 
-numbers = [5,6,7,8,9,10]
-
-def search_integer(array, item)
-	
 
 
+array = [1,2,3,4,5]
+
+def search_array(arr,item)
+  index = 0 
+  include = false 
+  arr.each do |num|
+    if num == item
+      include = true 
+      return index 
+    end 
+    index += 1 
+  end 
+  if include = false 
+    return nil 
+  end 
+end 
+
+p search_array(array,6)
+      
