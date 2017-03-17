@@ -81,12 +81,12 @@ the end of the array and the loop process will run again until the set loop time
 
 # This is the bubble sort  method.
 def bubble_sort(array)
-  n = array.length #4
+  n = array.length 
   loop do
     swapped = false
 
-   #3 (n-1).times do |i|
-      if array[2] #7 > array[3]#2
+    (n-1).times do |i|
+      if array[i]  > array[i+1]
         array[i], array[i+1] = array[i+1], array[i]
         swapped = true
       end
