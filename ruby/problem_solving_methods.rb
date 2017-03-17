@@ -25,4 +25,37 @@ def search_array(arr,item)
 end 
 
 p search_array(array,6)
+p search_array(array, 4)
+
+#Release 1
+=begin
+Each number in the array is the sum of the previous two numbers.
+Example of fib(6) should return with 6 indexes array [0, 1, 1, 2, 3, 5]
+Fib logic = Xn = (Xn -1 ) + (Xn - 2)
+=end 
+
+#start off with a method that takes a number as argument.
+# If the arugment is 4 , the loop will run 4 times and the first two time will meet the IF condition and put 0 and 1 into the array.
+
+
+def fib(num) 
+  fib_array = []
+  index = 0 
+  while index < num
+    if index == 0 
+      fib_array << index 
+    elsif index == 1 
+      fib_array << index 
+    else
+      fib_array << (fib_array[index - 1] + fib_array[index - 2 ])
+    end
+  index += 1 
+  end 
+  fib_array
+end 
       
+
+fib(100).last
+
+
+
