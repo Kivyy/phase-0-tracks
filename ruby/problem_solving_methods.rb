@@ -57,5 +57,46 @@ end
 
 fib(100).last
 
+#Release 2 
 
+=begin
+1. We chose Bubble sort as our sorting algorithm since it is the easier to understood.
+2. What helps us grasp the concept of the algorithm is by visualizing it and manually fill in method.
+3. It is extremely frustrated at first because we re not as familiar with array/data structure as we like to be. 
+It is affecting our ability to learn because we often get intimated by the large method. But once we break it down and 
+play it live one by one we got a better idea of how the sorting works.
+=end 
+
+=begin
+4. Starting by creating a method that takes an array of integer 
+set the length of the array (indexes) to a variable.
+set another variable for the swapping process to default as false.
+create a loop that will run as many times as the length of the array - 1 
+Each loop will start with the first index/digit and set a IF condition
+comparing the first two digits/indexes. If the value of index 2 is bigger than 1 ,
+then those indexes will swap its position. If the value of index1 is bigger than index2,
+then the swap variable will remind false and the loop will go on running each indexes until
+the end of the array and the loop process will run again until the set loop times.
+=end 
+
+# This is the bubble sort  method.
+def bubble_sort(array)
+  n = array.length #4
+  loop do
+    swapped = false
+
+   #3 (n-1).times do |i|
+      if array[2] #7 > array[3]#2
+        array[i], array[i+1] = array[i+1], array[i]
+        swapped = true
+      end
+    end
+
+    break if not swapped
+  end
+
+  array
+end
+
+bubble_sort([3,6,7,2])
 
