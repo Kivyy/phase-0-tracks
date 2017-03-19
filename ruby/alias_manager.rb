@@ -45,12 +45,15 @@ end_word = "quit"
 until word == end_word
 	puts "You may continue to provide us with a name or you can type 'quit' to exit the program."
 	word = gets.chomp.downcase 
-	alias_manager[word] = spy_name_generator(word)
-	break if word == end_word 
+	if word != end_word 
+	  alias_manager[word] = spy_name_generator(word)
+	else 
+	  break if word == end_word 
+	end 
 end 
 
-alias_manager.each do |name , spyname|
-  puts "#{name}'s spy name is #{spyname}"
+alias_manager.each do |name,spyname|
+  puts "#{name}'s spy name is #{spyname}."
 end 
 
 #RAN OUT OF TIME to fix the last part where quit is also store inside the hash.. gotta move on to assesment.
