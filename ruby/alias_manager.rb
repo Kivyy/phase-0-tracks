@@ -38,5 +38,15 @@ def spy_name_generator(word)
 
 end 
 
-spy_name_generator("felicia torres")
+#Release 1 
+
+puts "Hello associate, please provide us with a name"
+word = gets.chomp.downcase
+
+end_word == "quit"
+until word ==  end_word 
+	p spy_name_generator(word)
+	puts "You may continue to provise us with a name or you can type 'quit' to quit the program."
+	break if word == (" "|| "quit")
+end 
 
