@@ -1,11 +1,3 @@
-=begin 
--swapping first and last name (we can do it by splitting the name into two parts in an array and reverse it )
-- changing all the vowels into next vowels (aeoiu) will be (u become a ). 
-- set a method that change the user input into an array with two part.
-- set a loop to go through each character to detach any name with vowels and change it to next.
-=end 
-
-#attemp1 = changing all the consonant to the next consonant and then join them.
 
 def spy_name_generator(word)
 	letter = "bcdfghjklmnpqrstvwxyz"
@@ -39,14 +31,26 @@ def spy_name_generator(word)
 end 
 
 #Release 1 
+#an interface that ask the user for the name. 
+
 
 puts "Hello associate, please provide us with a name"
 word = gets.chomp.downcase
 
-end_word == "quit"
-until word ==  end_word 
-	p spy_name_generator(word)
-	puts "You may continue to provise us with a name or you can type 'quit' to quit the program."
-	break if word == (" "|| "quit")
+alias_manager = Hash.new(word)
+alias_manager[word] = spy_name_generator(word)
+
+end_word = "quit"
+
+until word == end_word
+	puts "You may continue to provide us with a name or you can type 'quit' to exit the program."
+	word = gets.chomp.downcase 
+	alias_manager[word] = spy_name_generator(word)
+	break if word == end_word 
 end 
 
+alias_manager.each do |name , spyname|
+  puts "#{name}'s spy name is #{spyname}"
+end 
+
+#RAN OUT OF TIME to fix the last part where quit is also store inside the hash.. gotta move on to assesment.
