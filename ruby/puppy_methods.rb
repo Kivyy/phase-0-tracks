@@ -7,3 +7,5 @@ class Puppy
 
 end
 
+dog = Puppy.new 
+dog.fetch("bone")
