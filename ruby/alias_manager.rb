@@ -18,6 +18,8 @@ def spy_name_generator(word)
     next_consonant_name << "u"
     elsif word[index] == "u"
     next_consonant_name << "a"
+	elsif word[index] == "z"
+	next_consonant_name == "b"	
     else 
     next_consonant_name <<  letter[num_letter + 1]
     end
