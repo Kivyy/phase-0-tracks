@@ -12,9 +12,14 @@ class Puppy
     end
   end
   
+  def roll_over(roll)
+    print "*rolls over*"
+  end 
+  
 end
 
 dog = Puppy.new 
 dog.fetch("bone")
 dog.speak(6)
+dog.roll_over("roll")
 
