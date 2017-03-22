@@ -7,6 +7,7 @@
 #adding instance variables to initialize method. Gender and ethnicity will require arguments. Ranking and age will have default value.
 
 class Santa 
+	attr_accessor gender: age: ethnicity: 
 
 	def initialize(gender,ethnicity)
 		puts "Initalizing Santa instance..."
@@ -24,9 +25,9 @@ class Santa
 		puts "That was a good #{cookie_type} cookie!"
 	end
 
+#a method get the santa age after his/her birthday
 	def celebrate_birthday
 		santa_current_age = @age + 1 
-		puts "This santa is currently #{santa_current_age} years old. "
 	end 
 
 #take an name as argument and move to the last position of the ranking array.
@@ -35,19 +36,6 @@ class Santa
 		@reindeer_ranking = reindeer_ranking.insert(-1 , reindeer_ranking.delete_at(reindeer_ranking.index(reindeer_name)))
 	end 
 
-#setter method 
-	def gender=(new_gender)
-		@gender = new_gender
-	end 
-
-#getter method 
-	def age 
-		@age 
-	end 
-
-	def ethnicity 
-		@ethnicity
-	end 
 
 end 
 
