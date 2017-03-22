@@ -21,8 +21,33 @@ class Santa
 	end 
 
 	def eat_milk_and_cookie(cookie_type)
-		puts "That was a good #{cookie_type}."
+		puts "That was a good #{cookie_type} cookie!"
 	end
+
+	def celebrate_birthday
+		santa_current_age = @age + 1 
+		puts "This santa is currently #{santa_current_age} years old. "
+	end 
+
+#take an name as argument and move to the last position of the ranking array.
+#we are inserting the name to the last index of the ranking array and use the same string/name to find the index of the same name array and delete it with delete_at.
+	def get_mad_at(reindeer_name)
+		@reindeer_ranking = reindeer_ranking.insert(-1 , reindeer_ranking.delete_at(reindeer_ranking.index(reindeer_name)))
+	end 
+
+#setter method 
+	def gender=(new_gender)
+		@gender = new_gender
+	end 
+
+#getter method 
+	def age 
+		@age 
+	end 
+
+	def ethnicity 
+		@ethnicity
+	end 
 
 end 
 
@@ -39,3 +64,5 @@ sant_genders.length.times do |i|
 end 
 
 p santas 
+
+
