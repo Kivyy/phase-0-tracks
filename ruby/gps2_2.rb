@@ -82,7 +82,7 @@ def print_list(grocery_list)
   end
 end
 
-print_list(grocery_list)
+print_list(grocery_list) 
 
 
 
