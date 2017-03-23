@@ -70,7 +70,6 @@ santas.each do |n|
 	puts "This santa gender: #{n.gender}. "
 	puts "This santa ethnicity: #{n.ethnicity}."
 	puts "This santa is #{n.celebrate_birthday} years old."
-	puts "Santa ranking: #{n.reindeer_ranking}."
 	puts "----------------------"
 end 
 
