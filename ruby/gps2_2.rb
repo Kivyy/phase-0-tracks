@@ -6,6 +6,7 @@
   #we will go through each value within the array and store it as the key value 
   # value of the key will be default quantity = 1 
   # print the list to the console using print method. 
+  
 def create(list_str)
 	grocery_list = {}
 	list_array = list_str.split(" ")
@@ -27,11 +28,31 @@ create("carrots apples cereal pizza")
 		#quantity => key's value 
 # output: the hash list
 
+def add(item_name, quantity, grocery_list)
+  grocery_list[item_name] = quantity
+  grocery_list
+end
+
+grocery_list = {"burger" =>2}
+
+
+#add("burger", 2, grocery_list)
+
+
 # Method to remove an item from the list
 # input: the list , item name 
 # steps: 
 	#search the hash for the item name and then delete the item name from hash.
 # output: the hash list 
+
+p grocery_list
+def remove(grocery_list, item_name)
+  grocery_list.delete(item_name)
+  grocery_list
+end
+
+#remove(grocery_list, "burger")
+
 
 # Method to update the quantity of an item
 # input: the list, the item and quantity
@@ -40,9 +61,37 @@ create("carrots apples cereal pizza")
 	# assign new value to the specific key
 # output: the hash list 
 
+
+def update(grocery_list, item_name, quantity)
+  grocery_list[item_name] = quantity
+  grocery_list
+end
+
+#update(grocery_list, "burger", 3)
 # Method to print a list and make it look pretty
 # input: the list	
 # steps:
 	# Go through each value of the hash 
 	# print keys and hash 
 # output: the hash list 
+
+def print_list(grocery_list)
+  puts "This is your grocery list:"
+  grocery_list.each do |item, quantity|
+    puts "#{item}: #{quantity}"
+  end
+end
+
+print_list(grocery_list)
+
+
+
+
+
+
+
+
+
+
+
+
