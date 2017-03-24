@@ -20,7 +20,7 @@ end
 
 class Person 
 	include Shout 
-end 
+end 	
 
 class Parents 
 	include Shout
