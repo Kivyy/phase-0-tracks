@@ -4,66 +4,60 @@
 #input: first user will be setting a secret word for second user to guess. 
 #(example: player1 : "pizza" ,if player2 guess:"pizza" then the game is over)
 #steps:
-	#set up a class and initialize it with a few empty instance variable(I'm not sure how many yet)
-	#one for player1,one for player2, one for guess count, one default false value.
+#set up a class and initialize it with a few empty instance variable(I'm not sure how many yet)
+#one for player1,one for player2, one for guess count, one default false value.
+class WordGame
+	attr_accessor :secret_word, :guess_word, :guess_count
+	attr_reader :word_array, :is_over, :space_array
 
-class WordGame 
-	attr_accessor :secret_word, :guess_word 
-	attr_reader :guess_count, :store_guess_word, :update_word
 
-	def initialize
-		@secret_word = ""
-		@guess_word = ""
-		@store_guess_word = ""
-		@guess_count = 0 
+	def initialize 
+#make sure the secret word is split by ('') when getting user's input 
+		@secret_word = secret_word
+#guess count will be determine by the length of the secret word. You may retrieve this info with UI.
+		@guess_count = ""
+		@word_array = []
 		@is_over = false 
-		@guess_length = @secret_word.length 
-		@update_word = []
-		@split_secret_word = secret_word.split("")
+		@space_array = []
 	end 
-	#The class will have method that:
-		#use condition to check if player2's choice of word matches player1.
-		#another method to check the guesses availability 
-	def check_word(player1,player2)
-		guess_count += 1 
-		if @guess_word == @secret_word
-			@store_guess_word = @guess_word
+#use condition to check if player2's choice of word matches player1.
+#iterate secret word and if guess letter matches then it will push to a new array or else push "_".
+##continue feed back for player2. Split the secret word to an array and iterate through the indexes.
+
+	def empty_array
+		@secret_word.length.times do |times|
+			@space_array << "_"
+		end 
+		@guess_count = @space_array.length 
+		@space_array
+	end 
+
+	def check_word(guess)
+		@secret_word.each do 
+
+
+
+#a method that that check if the array matches the secret word. 
+	def check_win 
+		if @word_array == @secret_word
+			puts "Congratulation. You won!"
 			@is_over = true 
-		#should have an condition where the same guessing word does not increase the count.
-		elsif @secret_word == @store_guess_word 
-			guess_count -= 1 
-			false 
-		elsif @guess_count == @guess_length
-			false 
 		else 
 			false 
-		end 
+		end
 	end 
-##continue feed back for player2. Split the secret word to an array and iterate through the indexes.
-	#if guess word matches the array's index element then it will push it to a new array, if condition does not match
-		#then it will feed a "_" to the new array. 
-	def word_update
-		split_secret_word.each do |letter_of_word|
-		  if letter_of_word != @guess_word 
-		    @update_word << "_"
-		  else 
-		    @update_word << guess_word
-		  end 
-		end 
-		 @update_word
-	end 
-  
-
 
 end 
 
-	
-	
-	#a loop that ask play1 for input (secret word) and player2 for the input to guess the secret word. 
-		#The loop should ends when player2's guesses are over 1:secret word's length 2:player2 guess the secret word. 
-		#a congratulatory message when the player2 input matches player1 input/a taungting message if player2 lost.
 
+#User interface 
+puts "Welcome to the Word Game!"
+game = WordGame.new 
 
+puts "Player 1, please provide us with a secret word"
+game.secret_word = gets.chomp.split("")
+game.guess_count = game.secret_word.length
+game.empty_array
 
-
-
+puts "you have #{game.guess_count} times to guess the word."
+p game.space_array
