@@ -34,7 +34,8 @@ class WordGame
 
 	def check_word(guess)
 		@secret_word.each do 
-
+		end 
+	end 
 
 
 #a method that that check if the array matches the secret word. 
@@ -53,11 +54,12 @@ end
 #User interface 
 puts "Welcome to the Word Game!"
 game = WordGame.new 
+puts "-------------------------"
 
 puts "Player 1, please provide us with a secret word"
 game.secret_word = gets.chomp.split("")
 game.guess_count = game.secret_word.length
 game.empty_array
 
-puts "you have #{game.guess_count} times to guess the word."
+puts "Player 2: You have #{game.guess_count} times to guess the word."
 p game.space_array
