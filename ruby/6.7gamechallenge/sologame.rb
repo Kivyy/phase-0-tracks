@@ -41,12 +41,14 @@ class WordGame
 					      @guess_word[idx] = guess 
 					end 
 				end
+				answer_update
+				check_win 
           	end 		
 		else  
 			false 
+			@num_guess -= 1 
 			puts "Wrong guess. Try again!"
 		end 
-		@guess_word
 	end 
 
 #a methd to iterate through the guess's array and if the value is nil/false value then print "_"
@@ -63,10 +65,15 @@ class WordGame
 		if @guess_word == @secret_word 
 			@is_over = true 
 			puts "Congrats! You won!"
-		elsif @num_guess == 0 
-			@is_over = true 
 		else
 			false 
+		end 
+
+		if @num_guess == 0 
+			@is_over = true
+			puts "No more tries! You have lost."
+		else 
+			false
 		end 
 	end 
 
@@ -74,20 +81,23 @@ end
 
 
 # #User interface 
-# puts "Welcome to the Word Game!"
-# game = WordGame.new 
-# puts "-------------------------"
+puts "Welcome to the Word Game!"
+game = WordGame.new 
+puts "-------------------------"
 
-# puts "Player 1, please provide us with a secret word"
-# game.secret_word = gets.chomp.split("")
-# game.guess_count = game.secret_word.length
-# game.empty_array
+puts "Player 1, please provide us with a secret word"
+game.secret_word = gets.chomp.split("")
+game.count_guess
 
-# puts "Player 2: You have #{game.guess_count} times to guess the word."
-# p game.space_array
+puts "Player 2: You have #{game.num_guess} tries to guess the word."
 
-# while !game.is_over 
-# 	puts "You may guess now"
-# 	guess = gets.chomp 
-# 	game.check_word(guess)
-# end 
+while !game.is_over 
+	puts "Please guess a word."
+	guess = gets.chomp 
+	game.check_word(guess)
+	if game.num_guess == 0
+		puts "You have used up all your tries! Game Over."
+	end 
+	break if game.num_guess == 0 
+
+end 
