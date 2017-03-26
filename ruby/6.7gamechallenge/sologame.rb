@@ -14,8 +14,6 @@ class WordGame
 		@secret_word 
 		@guess_word = []
 		@word_length_array = []
-		@word_array = []
-		@guess_array =[]
 		@is_over = false 
 	end 
 #make sure the secret word is split by ('') when getting user's input 
@@ -31,24 +29,18 @@ class WordGame
 #in a new array. 
 #use condition to check if player2's choice of word matches player1.
 ##continue feed back for player2. Split the secret word to an array and iterate through the indexes.
-
-	# def check_word
-	# 	@secret_word.each_index do |idx|
-	# 		if @secret_word[idx] == @guess_word
-	# 			@word_array[idx] = @guess_word 
-	# 		else 
-	# 			@word_array[idx] = "_"
-	# 		end 
-	# 	end 
-	# 	p @word_array
-	# end 
 	def check_word(guess)
 		@secret_word.each_index do |idx|
 			if @secret_word[idx] == guess 
 				@guess_word[idx] = guess 
-			else 
-				@guess_word[idx] = "_"
 			end 
+		end 
+		@guess_word
+	end 
+#a methd to iterate through the guess's array and if the value is nil then print "_"
+	def answer_update 
+		@guess_word.each_index do |i|
+			@guess_word[i] ||= "_"
 		end 
 		p @guess_word
 	end 
