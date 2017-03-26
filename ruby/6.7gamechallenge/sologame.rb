@@ -32,23 +32,21 @@ class WordGame
 #use condition to check if player2's choice of word is included in the secret word. 
 ##continue feed back for player2. Split the secret word to an array and iterate through the indexes.	
 	def check_word(guess)
-	  secret_word = ["a","b","c"]
 
 		if @secret_word.include? (guess)
 			@word_include = true 
 			if @word_include == true 
 			   @secret_word.each_index do |idx|
-			    if @secret_word[idx] == guess 
-				      @guess_word[idx] = guess 
-				else 
-				      @guess_word[idx] = "_"
-				end 
+				    if @secret_word[idx] == guess 
+					      @guess_word[idx] = guess 
+					end 
+				end
           	end 		
 		else  
 			false 
 			puts "Wrong guess. Try again!"
 		end 
-		p @guess_word
+		@guess_word
 	end 
 
 #a methd to iterate through the guess's array and if the value is nil/false value then print "_"
