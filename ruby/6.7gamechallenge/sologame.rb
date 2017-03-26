@@ -8,35 +8,49 @@
 #one for player1,one for player2, one for guess count, one default false value.
 class WordGame
 	attr_accessor :secret_word, :guess_word
-	attr_reader :word_length_array, :word_array 
+	attr_reader :word_length_array, :word_array , :num_guess ,:is_over 
 
 	def initialize
 		@secret_word 
 		@guess_word = []
 		@word_length_array = []
 		@is_over = false 
+		@num_guess = num_guess
+		@word_include = false 
 	end 
 #make sure the secret word is split by ('') when getting user's input 
 #guess count will be determine by the length of the secret word. You may retrieve this info with UI.
 	def count_guess 
-		num_guess = @secret_word.length 
-		num_guess.times do 
+		@num_guess = @secret_word.length 
+		@num_guess.times do 
 			@word_length_array << "_"
 		end 
 		p @word_length_array
 	end 
 #a method that iterate through the secret word by index and if the guess word matches then it will return the letter matching the index
 #in a new array. 
-#use condition to check if player2's choice of word matches player1.
-##continue feed back for player2. Split the secret word to an array and iterate through the indexes.
+#use condition to check if player2's choice of word is included in the secret word. 
+##continue feed back for player2. Split the secret word to an array and iterate through the indexes.	
 	def check_word(guess)
-		@secret_word.each_index do |idx|
-			if @secret_word[idx] == guess 
-				@guess_word[idx] = guess 
-			end 
+	  secret_word = ["a","b","c"]
+
+		if @secret_word.include? (guess)
+			@word_include = true 
+			if @word_include == true 
+			   @secret_word.each_index do |idx|
+			    if @secret_word[idx] == guess 
+				      @guess_word[idx] = guess 
+				else 
+				      @guess_word[idx] = "_"
+				end 
+          	end 		
+		else  
+			false 
+			puts "Wrong guess. Try again!"
 		end 
-		@guess_word
+		p @guess_word
 	end 
+
 #a methd to iterate through the guess's array and if the value is nil/false value then print "_"
 	def answer_update 
 		@guess_word.each_index do |i|
@@ -47,11 +61,13 @@ class WordGame
 
 #a method that that check if the array matches the secret word. 
 #if the values/elements of the guess word array matches the secret word array then is_over variable will return true.
-
+	def check_win
 		if @guess_word == @secret_word 
 			@is_over = true 
 			puts "Congrats! You won!"
-		else 
+		elsif @num_guess == 0 
+			@is_over = true 
+		else
 			false 
 		end 
 	end 
