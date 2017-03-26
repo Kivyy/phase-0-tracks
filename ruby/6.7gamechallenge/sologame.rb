@@ -37,7 +37,7 @@ class WordGame
 		end 
 		@guess_word
 	end 
-#a methd to iterate through the guess's array and if the value is nil then print "_"
+#a methd to iterate through the guess's array and if the value is nil/false value then print "_"
 	def answer_update 
 		@guess_word.each_index do |i|
 			@guess_word[i] ||= "_"
@@ -46,6 +46,15 @@ class WordGame
 	end 
 
 #a method that that check if the array matches the secret word. 
+#if the values/elements of the guess word array matches the secret word array then is_over variable will return true.
+
+		if @guess_word == @secret_word 
+			@is_over = true 
+			puts "Congrats! You won!"
+		else 
+			false 
+		end 
+	end 
 
 end 
 
