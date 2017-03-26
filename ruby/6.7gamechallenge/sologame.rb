@@ -10,8 +10,8 @@ class WordGame
 	attr_accessor :secret_word, :guess_word
 	attr_reader :word_length_array, :word_array , :num_guess ,:is_over 
 
-	def initialize
-		@secret_word 
+	def initialize (secret_word)
+		@secret_word = secret_word.split('')
 		@guess_word = []
 		@word_length_array = []
 		@is_over = false 
@@ -82,11 +82,11 @@ end
 
 # #User interface 
 puts "Welcome to the Word Game!"
-game = WordGame.new 
 puts "-------------------------"
 
 puts "Player 1, please provide us with a secret word"
-game.secret_word = gets.chomp.split("")
+secret_word = gets.chomp 
+game = WordGame.new(secret_word)
 game.count_guess
 
 puts "Player 2: You have #{game.num_guess} tries to guess the word."
