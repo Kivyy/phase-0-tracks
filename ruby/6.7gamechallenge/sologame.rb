@@ -92,7 +92,7 @@ game.count_guess
 puts "Player 2: You have #{game.num_guess} tries to guess the word."
 
 while !game.is_over 
-	puts "Please guess a word."
+	puts "Please guess a word. (#{game.num_guess} guesses left.)"
 	guess = gets.chomp 
 	game.check_word(guess)
 	if game.num_guess == 0
