@@ -8,8 +8,9 @@ function reverseStr(word) {
 	for (i = word.length -1; i >= 0 ; i--){
 		newStr += word[i];
 	}
+	// return string.
 	return newStr
 }
-// iterate the string and store the last letter of the string to the new variable. 
-// return string.
+
+console.log(reverseStr("hello"));
 
