@@ -2,11 +2,13 @@
 // a method that takes a string as argument 
 function reverseStr(word) {
 // create a new variable to store the new string 
-var newStr = "";
-// iterate the string and store the last letter of the string to the new variable. 
-for (var i = 0; i < word.length; i ++){
-	newStr = ("" + word.charAt(word.length - 1 );
-}
+	var newStr = "";
+	// iterate the string and store the last letter of the string to the new variable. 
+	// last letter of the string can be determine by the length -1 (ex. hello has 5 letter and 5 - 1 will be 4. str[4]= o )
+	for (i = word.length -1; i >= 0 ; i--){
+		newStr += word[i];
+	}
+	return newStr
 }
 // iterate the string and store the last letter of the string to the new variable. 
 // return string.
