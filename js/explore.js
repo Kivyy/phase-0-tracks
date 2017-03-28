@@ -12,5 +12,11 @@ function reverseStr(word) {
 	return newStr
 }
 
-console.log(reverseStr("hello"));
+var reStr = reverseStr("hello");
+
+// Driver code for true condition and print out the store variable. 
+
+if (1 == 1 ) {
+  console.log(reStr);
+}
 
