@@ -19,3 +19,20 @@ if (color.length == names.length){
 
 console.log(horse);
 
+function Car(brand, year, model) {
+  console.log("Creating your car...");
+  
+  this.brand = brand;
+  this.year = year;
+  this.model = model;
+  
+  this.drive = function(){console.log("Vroom.");};
+}
+
+var newCar = new Car("BMW",2016,"m6");
+console.log(newCar);
+console.log(newCar.drive());
+
+var anotherCar = new Car("Honda",2016,"civic");
+console.log(anotherCar);
+console.log(anotherCar.drive());
