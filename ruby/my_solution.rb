@@ -121,3 +121,9 @@ end
 
 #=======================================================================
 # Reflection Section
+#the difference between => and :(symbol) are symbol is used when the piece of information is not changable. (e.g population: will not be change throughout the document.)
+# 'require_relative' links to your own Ruby file(s) in the same directory to refer to specific classes and methods within that file.
+# 'require' is more specific in providing the absolute pathway to a Ruby file that may not be yours or you'll pulling from another server.
+# we can use .each/map to iterate the hash 
+# those instance variables can be call anytime within the class and we dont have to constantly take in argument for method to work because there are stored inside the class for each instances.
+# This challenge solidy hashes for me. 
