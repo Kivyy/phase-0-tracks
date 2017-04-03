@@ -38,4 +38,35 @@ function checkProp(arrayOne,arrayTwo){
   return false;
 }
 
+// Driver code
 checkProp(personOne,personTwo)
+
+//Release 2 
+//A method that generate random words
+//1. takes integer as argument and return value should be english alphabet.length.
+function randomArray(numOfArray){
+	//create an empty array to store random words.
+	var random = [];
+	// a loop that will take the interger and store as the index 
+	for (index = numOfArray; index > 0 ; index--){
+		var rdmWord = '';
+	// a method in javascript that provide random num and i've set the limit within 10. 
+		var wordLength = Math.floor(Math.random() * (10 - 1)) + 1;
+		var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	// using the same method to choose letter from the alpahbet varibale.
+		for(var i = 0 ; i < wordLength; i++){
+			rdmWord += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+		}
+	// push the selected random word to the empty array.
+	random.push(rdmWord);
+	}
+	return random;
+}
+
+// Driver code
+
+// Release 2 
+for(times = 10; times > 0 ; times--){
+	storeArray = randomArray(times);
+	console.log(checkLongWord(storeArray));
+}
