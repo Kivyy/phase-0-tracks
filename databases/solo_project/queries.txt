@@ -28,3 +28,7 @@ cereals|dry food
 candies by weight|dry food
 
 5. DELETE FROM grocery WHERE item_name = "fish";
+
+Release 3 
+https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/ 
+this is a good visual website that eplain join. 
