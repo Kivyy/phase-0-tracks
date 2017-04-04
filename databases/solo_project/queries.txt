@@ -1,0 +1,34 @@
+1.  SELECT * FROM grocery;
+1|ice cream|4|false
+2|chicken|3|false
+3|chicken broth|1|false
+4|milk|3|false
+5|fresh cut fish|1|true
+6|cereals|2|false
+7|candies by weight|2|true
+
+2. UPDATE grocery SET item_name="fish" WHERE item_name = "chicken";
+
+3. SELECT * FROM grocery, aisle WHERE grocery.grocery_aisle = aisle.id;
+1|ice cream|4|false|4|freezer
+2|fish|3|false|3|fridge
+3|chicken broth|1|false|1|wet food
+4|milk|3|false|3|fridge
+5|fresh cut fish|1|true|1|wet food
+6|cereals|2|false|2|dry food
+7|candies by weight|2|true|2|dry food
+
+4.  SELECT grocery.item_name, aisle.aisle_condition FROM grocery JOIN aisle ON grocery.grocery_aisle = aisle.id;
+ice cream|freezer
+fish|fridge
+chicken broth|wet food
+milk|fridge
+fresh cut fish|wet food
+cereals|dry food
+candies by weight|dry food
+
+5. DELETE FROM grocery WHERE item_name = "fish";
+
+Release 3 
+https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/ 
+this is a good visual website that eplain join. 
