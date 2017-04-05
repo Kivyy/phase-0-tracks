@@ -1,0 +1,23 @@
+1.  SELECT businesses.name,users.first_name,last_name,reviews.stars,comment FROM reviews INNER JOIN businesses ON reviews.business_id = businesses.id INNER JOIN users On users.id = reviews.user_id;
+
+Think Coffee|Bruce|Wayne|3|Bad coffee
+Think Coffee|Tony|Stark|4|Decent coffee
+Cuz Bowling|Arthur|Curry|5|Great bowling alley
+Whatever Restaurant|Arthur|Curry|4|Great Foods
+Yoda Yoga|Van|Doom|5|Great workout routine
+Webster Hall|Barry|Allen|3|Great concert venue
+Whatever Restaurant|Barry|Allen|5|Great service
+
+2. SELECT users.first_name,last_name,businesses.name,reviews.stars,comment FROM reviews INNER JOIN users ON users.id = reviews.user_id INNER JOIN businesses ON businesses.id = reviews.business_id;
+
+Bruce|Wayne|Think Coffee|3|Bad coffee
+Tony|Stark|Think Coffee|4|Decent coffee
+Arthur|Curry|Cuz Bowling|5|Great bowling alley
+Arthur|Curry|Whatever Restaurant|4|Great Foods
+Van|Doom|Yoda Yoga|5|Great workout routine
+Barry|Allen|Webster Hall|3|Great concert venue
+Barry|Allen|Whatever Restaurant|5|Great service
+
+3.SELECT * FROM reviews INNER JOIN businesses ON  businesses.id = reviews.business_id INNER JOIN users ON users.id = reviews.user_id WHERE businesses.name = "Think Coffee";
+1|3|Bad coffee|2|1|2|Think Coffee|1|Bruce|Wayne
+2|4|Decent coffee|2|2|2|Think Coffee|2|Tony|Stark
