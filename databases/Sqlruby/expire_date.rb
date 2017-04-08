@@ -16,13 +16,17 @@ datab.execute(create_table_cmd)
 
 #method 1: to check the whole list for the user
 whole_list = datab.execute("SELECT * FROM items")
-p whole_list
-def list_data(whole_list)
+current_date = datab.execute("SELECT strftime('%m-%d-%Y','now')")
+
+def list_data(whole_list,current_date)
+	current_date.each do |date|
 	whole_list.each do |items|
 		puts "item: #{items['item_name']} | purchased on: #{items['purchase_date']}"
-		puts "This item will be expired on:#{items['expired_date']}"
+		puts "This item will be expired on: #{items['expired_date']}"
+		puts "Today date is #{date[0]}"
 		puts "------------------------------------------------------------------------------"
 	end 
+	end
 end 
 
 #method 2: allow user to add the list.
@@ -44,13 +48,13 @@ initial_respond = gets.chomp.to_i
 
 case initial_respond 
 when 1 
-	list_data(whole_list)
+	list_data(whole_list,current_date)
 when 2 
 	puts "Please provide us name of the item you would like to add." 
 	i_name = gets.chomp 
 	puts "Please provide us with the purchased date.(mm-dd-yyyy)"
-	i_p_date = gets.chomp.to_i 
+	i_p_date = gets.chomp
 	puts "Please provide us with the expired date.(mm-dd-yyyy)"
-	i_e_date = gets.chomp.to_i 
+	i_e_date = gets.chomp
 	add_list(datab,i_name,i_p_date,i_e_date)
 end 
