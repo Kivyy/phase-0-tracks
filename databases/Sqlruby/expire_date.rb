@@ -17,6 +17,7 @@ datab.execute(create_table_cmd)
 #method 1: to check the whole list for the user
 whole_list = datab.execute("SELECT * FROM items")
 current_date = datab.execute("SELECT strftime('%m-%d-%Y','now')")
+item_only = datab.execute("SELECT item_name FROM items")
 
 def list_data(whole_list,current_date)
 	current_date.each do |date|
@@ -35,18 +36,27 @@ def add_list(datab,i_name,i_p_date,i_e_date)
 	datab.execute("INSERT INTO items (item_name,purchase_date,expired_date) VALUES (?,?,?)",[i_name,i_p_date,i_e_date])
 end 
 
-#method 2: allow user to update the list. 
+#method 3: allow user to update the list. 
 def update_list(datab,up_name,up_p_date,up_e_date)
 	datab.execute("UPDATE items SET purchase_date = (?),expired_date = (?) WHERE item_name = (?)",[up_p_date,up_e_date,up_name])
 end 
 
+#method 4: to delete item off the list.
+def delete_list(datab,delete_item)
+	datab.execute("DELETE FROM items WHERE item_name = (?)",[delete_item])
+end 
 
-
+#method 5 
+def display_item(item_only)
+	item_only.each do |item_name|
+		puts "Item: #{item_name[0]}"
+	end 
+end 
 
 #UI
 puts "Welcome back to CheckYoStuff!"
 puts "-----------------------------"
-puts "[1]to see your list,[2]to add new item,[3]to update the items, [4] to quit the program."
+puts "[1]to see your list,[2]to add new item,[3]to update the items,[4] to delete ite off the list, [5] to quit the program."
 initial_respond = gets.chomp.to_i 
 
 case initial_respond 
@@ -60,6 +70,7 @@ when 2
 	puts "Please provide us with the expired date.(mm-dd-yyyy)"
 	i_e_date = gets.chomp
 	add_list(datab,i_name,i_p_date,i_e_date)
+	list_data(whole_list,current_date)
 when 3 
 	puts "Please provide us with the name of the item you want to update."
 	up_name = gets.chomp 
@@ -68,6 +79,12 @@ when 3
 	puts "Please provide us with the new expired date."
 	up_e_date = gets.chomp 
 	update_list(datab,up_name,up_p_date,up_e_date)
+	list_data(whole_list,current_date)
 when 4 
+	puts "Which item do you wish to delete?"
+	display_item(item_only)
+	delete_item = gets.chomp 
+	delete_list(datab,delete_item)
+when 5
 	puts "thank you for using the program!"
 end 
