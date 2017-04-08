@@ -63,6 +63,7 @@ case initial_respond
 when 1 
 	list_data(whole_list,current_date)
 when 2 
+#Fix this and make this a loop.
 	puts "Please provide us name of the item you would like to add." 
 	i_name = gets.chomp 
 	puts "Please provide us with the purchased date.(mm-dd-yyyy)"
@@ -70,7 +71,6 @@ when 2
 	puts "Please provide us with the expired date.(mm-dd-yyyy)"
 	i_e_date = gets.chomp
 	add_list(datab,i_name,i_p_date,i_e_date)
-	list_data(whole_list,current_date)
 when 3 
 	puts "Please provide us with the name of the item you want to update."
 	up_name = gets.chomp 
@@ -79,7 +79,6 @@ when 3
 	puts "Please provide us with the new expired date."
 	up_e_date = gets.chomp 
 	update_list(datab,up_name,up_p_date,up_e_date)
-	list_data(whole_list,current_date)
 when 4 
 	puts "Which item do you wish to delete?"
 	display_item(item_only)
