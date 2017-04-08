@@ -21,7 +21,7 @@ current_date = datab.execute("SELECT strftime('%m-%d-%Y','now')")
 def list_data(whole_list,current_date)
 	current_date.each do |date|
 	whole_list.each do |items|
-		puts "item: #{items['item_name']} | purchased on: #{items['purchase_date']}"
+		puts "Item: #{items['item_name']} | Purchased on: #{items['purchase_date']}"
 		puts "This item will be expired on: #{items['expired_date']}"
 		puts "Today date is #{date[0]}"
 		puts "------------------------------------------------------------------------------"
@@ -36,6 +36,9 @@ def add_list(datab,i_name,i_p_date,i_e_date)
 end 
 
 #method 2: allow user to update the list. 
+def update_list(datab,up_name,up_p_date,up_e_date)
+	datab.execute("UPDATE items SET purchase_date = (?),expired_date = (?) WHERE item_name = (?)",[up_p_date,up_e_date,up_name])
+end 
 
 
 
@@ -43,7 +46,7 @@ end
 #UI
 puts "Welcome back to CheckYoStuff!"
 puts "-----------------------------"
-puts "[1]to see your list,[2]to update the items,[3]to add new item [4] to quit the program."
+puts "[1]to see your list,[2]to add new item,[3]to update the items, [4] to quit the program."
 initial_respond = gets.chomp.to_i 
 
 case initial_respond 
@@ -57,4 +60,14 @@ when 2
 	puts "Please provide us with the expired date.(mm-dd-yyyy)"
 	i_e_date = gets.chomp
 	add_list(datab,i_name,i_p_date,i_e_date)
+when 3 
+	puts "Please provide us with the name of the item you want to update."
+	up_name = gets.chomp 
+	puts "Please provide us with the new purchase date."
+	up_p_date = gets.chomp 
+	puts "Please provide us with the new expired date."
+	up_e_date = gets.chomp 
+	update_list(datab,up_name,up_p_date,up_e_date)
+when 4 
+	puts "thank you for using the program!"
 end 
