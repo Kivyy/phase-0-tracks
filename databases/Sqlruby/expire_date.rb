@@ -53,17 +53,20 @@ def display_item(item_only)
 	end 
 end 
 
+#UI method for adding new item.
+
+
+
 #UI
 puts "Welcome back to CheckYoStuff!"
 puts "-----------------------------"
-puts "[1]to see your list,[2]to add new item,[3]to update the items,[4] to delete ite off the list, [5] to quit the program."
+puts "[1]to see your list,[2]to add new item,[3]to update the items,[4] to delete item off the list, [5] to quit the program."
 initial_respond = gets.chomp.to_i 
 
 case initial_respond 
 when 1 
 	list_data(whole_list,current_date)
 when 2 
-#Fix this and make this a loop.
 	puts "Please provide us name of the item you would like to add." 
 	i_name = gets.chomp 
 	puts "Please provide us with the purchased date.(mm-dd-yyyy)"
@@ -72,6 +75,7 @@ when 2
 	i_e_date = gets.chomp
 	add_list(datab,i_name,i_p_date,i_e_date)
 when 3 
+	display_item(item_only)
 	puts "Please provide us with the name of the item you want to update."
 	up_name = gets.chomp 
 	puts "Please provide us with the new purchase date."
