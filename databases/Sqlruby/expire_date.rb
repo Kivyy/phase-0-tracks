@@ -67,13 +67,19 @@ case initial_respond
 when 1 
 	list_data(whole_list,current_date)
 when 2 
-	puts "Please provide us name of the item you would like to add." 
-	i_name = gets.chomp 
-	puts "Please provide us with the purchased date.(mm-dd-yyyy)"
-	i_p_date = gets.chomp
-	puts "Please provide us with the expired date.(mm-dd-yyyy)"
-	i_e_date = gets.chomp
-	add_list(datab,i_name,i_p_date,i_e_date)
+	puts "How many item(s) do you want to add to your list?"
+	item_count = gets.chomp.to_i
+
+	item_count.times do 
+		puts "Please provide us name of the item you would like to add." 
+		i_name = gets.chomp 
+		puts "Please provide us with the purchased date.(mm-dd-yyyy)"
+		i_p_date = gets.chomp
+		puts "Please provide us with the expired date.(mm-dd-yyyy)"
+		i_e_date = gets.chomp
+		add_list(datab,i_name,i_p_date,i_e_date)
+	end 
+	puts "Thank you for using CheckYoStuff!"
 when 3 
 	display_item(item_only)
 	puts "Please provide us with the name of the item you want to update."
