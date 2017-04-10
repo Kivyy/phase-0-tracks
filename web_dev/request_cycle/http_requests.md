@@ -14,4 +14,7 @@
 
 ### Cookie
 -An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to the user's web browser, that may store it and send it back together with the next request to the same server. Typically, it's used to know if two requests came from the same browser allowing to keep a user logged-in, for example. It remembers stateful information for the stateless HTTP protocol.
--
+
+##Release 1 
+##Linux borrows heavily from theUNIX operating system because it was written to be a free and open source version ofUNIX. Files are stored in a hierarchical filesystem, with the top node of the system beingrootor simply "/". Whenever possible, Linux makes its components available via files or objects that look like files. Processes, devices, and network sockets are all represented by file-like objects, and can often be worked with using the same utilities used for regular files.Linux is a fullymultitasking(a method where multiple tasks are performed during the same period of time),multiuseroperating system, with built-in networking and service processes known asdaemons in theUNIXworld.
+
