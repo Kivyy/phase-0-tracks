@@ -20,11 +20,18 @@ end
 get '/students/info' do
 	erb :student_info
 end 
+
+get 'student' do 
+	@student = db.execute("SELECT * FROM students WHERE name=? AND id=?",[params['name'],params['id'].to_s])
+	redirect '/student/info'
+end 
+
 # create new students via
 # a form
 post '/students' do
   db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
   redirect '/'
 end
+
 
 # add static resources
