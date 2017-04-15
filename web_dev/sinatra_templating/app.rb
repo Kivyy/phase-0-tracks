@@ -21,9 +21,13 @@ get '/students/info' do
 	erb :student_info
 end 
 
+get '/individual_info' do 
+	erb :individual_info
+end 
+
 get 'student' do 
 	@student = db.execute("SELECT * FROM students WHERE name=? AND id=?",[params['name'],params['id'].to_s])
-	redirect '/student/info'
+	redirect '/individual_info'
 end 
 
 # create new students via

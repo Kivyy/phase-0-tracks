@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Student's info</title>
+</head>
+<body>
+  <h1>Student's personal info </h1>
+  <p>Welcome to the student management system.</p>
+  <ul>
+    <% @student.each do |student| %>
+      <li><%= student['name'] %></li>
+      <li><%= student['age'] %></li>
+      <li><%= student['campus'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
